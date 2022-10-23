@@ -12,17 +12,9 @@ def newhabit():
         print("Good job!")
         start_date = datetime.now()
         streak = 1
-    return habitname, start_date, streak
-
-
-
-
-def trackhabits(habitname, start_date, streak):
     return {"Habit": habitname, "Start Date": start_date, "No. of Days Completed": streak}
 
-newhabit()
-
-habits = [trackhabits(habitname, start_date, streak)]
+habits = [newhabit()]
 
 df = pd.DataFrame(habits)
 print(tabulate(df, headers="keys", tablefmt="psql"))
