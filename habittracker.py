@@ -8,11 +8,11 @@ def newhabit():
     global streak
     habitname = input("What habit would you like to start tracking? ")
     x = input("Did this habit occur today? ")
-    if (x == 'yes' or "Yes"):
+    if (x == 'yes'):
         print("Good job!")
         start_date = datetime.now()
         streak = 1
-    else:
+    elif (x == 'no'):
         print("That's ok, you can try again tomorrow")
         start_date = "not yet started"
         streak = 0
@@ -24,7 +24,7 @@ df = pd.DataFrame(habits)
 print(tabulate(df, headers="keys", tablefmt="psql"))
 
 while(input("Would you like to track another habit? ") == 'yes'):
-    habits.insert(1, newhabit())
+    habits.insert(0, newhabit())
 
 else:
     print("Ok, here's your habits so far:")
